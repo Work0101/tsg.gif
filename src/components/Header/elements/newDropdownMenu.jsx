@@ -7,26 +7,30 @@ import React from "react";
 const NewDropdownMenu = ({setState, mouseOnBlock, matches, handelNavLinkButtonClick, menuIsOpen}) =>{
 console.log(menuIsOpen)
     return(       <div
-        className="header-nav-main header-nav-main-text-capitalize header-nav-main-effect-2 header-nav-main-sub-effect-1  d-justify-content-center">
+        className="header-nav-main header-nav-main-text-capitalize header-nav-main-effect-2 header-nav-main-sub-effect-1  d-justify-content-center"
+ >
         <nav className="collapse">
             <ul className="nav nav-pills" id="mainNav"
 
-                style={{display:"flex",width: "100%", paddingBottom: "5px", paddingTop:"0", borderTop:matches&&"1px solid #e8e8e8" }}
+                style={{display:"flex",width: "100%", paddingBottom: "5px", paddingTop:"0", borderTop:matches&&"1px solid #e8e8e8", backgroundColor:"#fff" }}
                 onMouseEnter={() => setState(true)}
                 onMouseLeave={() => setState(false)}>
+
+
+
                 <NavLinkCustom link={"/"} text={"Home"}
                                mouseOnBlock={mouseOnBlock} matches={matches}
                                inMenu={matches}
                                handelNavLinkButtonClick={handelNavLinkButtonClick}/>
-                <NavLinkCustom link={"/company"} text={"Company"}
+                <NavLinkCustom link={"/marketing"} text={"Marketing"}
                                mouseOnBlock={mouseOnBlock} matches={matches}
                                inMenu={matches}
                                handelNavLinkButtonClick={handelNavLinkButtonClick}/>
-                <NavLinkCustom link={"/services"} text={"Services"}
+                <NavLinkCustom link={"/quotes"} text={"Quotes"}
                                mouseOnBlock={mouseOnBlock} matches={matches}
                                inMenu={matches}
                                handelNavLinkButtonClick={handelNavLinkButtonClick}/>
-                <NavLinkCustom link={"/gallery"} text={"Gallery"}
+                <NavLinkCustom link={"/legal"} text={"Legal"}
                                mouseOnBlock={mouseOnBlock} matches={matches}
                                inMenu={matches}
                                handelNavLinkButtonClick={handelNavLinkButtonClick}/>

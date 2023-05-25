@@ -30,7 +30,7 @@ const FlagComponents = ({
     const langInfo = useSelector((state) => state.language)
 
     return (
-        <div className="dropdown  nav-item p-0" style={{maxHeight: "100vh", width: matches ? "100%" : "60px"}}>
+        <div className="dropdown  nav-item p-0"  style={{maxHeight: "100vh", width: matches ? "100%" : "60px"}}>
             <div className={`d-flex   justify-content-center  ${matches ? "new-button-auth" : "new-button"}`}
                  data-bs-toggle="dropdown"
                  style={{padding: 0, maxHeight: "100vh", scrollBehavior: "auto",  width: matches ? "100%" : "60px", border:"none"}}

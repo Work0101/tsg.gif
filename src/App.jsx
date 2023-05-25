@@ -45,12 +45,10 @@ const App =() =>{
         createRoutesFromElements(
             <>
                     <Route path={`/:code?`} element={<Templates/>}>
-
-
                         <Route index element={<HomePage/>}/>
-                        <Route path={`/:code/gallery/`} element={<GalleryPage/>}/>
-                        <Route path={`/:code/services/`} element={<ServicesPage/>}/>
-                        <Route path={`/:code/company/`} element={<CompanyPage/>}/>
+                        <Route path={`/:code/legal/`} element={<GalleryPage/>}/>
+                        <Route path={`/:code/quotes/`} element={<ServicesPage/>}/>
+                        <Route path={`/:code/marketing/`} element={<CompanyPage/>}/>
                         <Route path={`/:code/signup/`} element={<SignUpPage/>}/>
                         <Route path={`/:code/signin/`} element={<LoginPage/>}/>
 
