@@ -1,30 +1,39 @@
-.btn {
+header{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btns {
+    border: 2px #f76205ff solid;
+
+    color: #f76205ff;
     display: flex;
     font-size: 18px;
-    color: #f76205ff;
     height: 40px;
     min-width: 40px;
+
     padding: 3px;
     max-width: 80px;
 
-    border: 2px #f76205ff solid;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 4px;
     margin-right: 4px;
     position: relative;
     overflow: hidden;
     transition: 0.5s;
 }
 
-.btn:hover {
+.btns:hover {
     background-color: #f76205ff;
     color: #fff;
     border: 2px #f76205ff solid;
 
 }
 
-.btn:active {
+.btns:active {
     background-color: #DA5A0AFF;
 
 }
@@ -32,7 +41,7 @@
 .social-icons-containers {
     width: 40px;
     height: 40px;
-    border-radius: 3px;
+    border-radius: 4px;
     transition: 0.3s;
 }
 
@@ -60,7 +69,7 @@
 }
 
 @media (max-width: 390px) {
-    .btn {
+    .btns {
         font-size: 15px;
     }
 }
@@ -81,7 +90,7 @@
     /*border: 2px #f76205ff solid;*/
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 4px;
     margin-right: 4px;
     position: relative;
     overflow: hidden;
@@ -103,6 +112,238 @@
     background-color: #DA5A0AFF;
 
 }
+
+
+.new-button {
+    display: flex;
+    font-size: 18px;
+    height: 42px;
+    min-width: 42px;
+    border: 1px solid #fff;
+    padding: 3px;
+    text-decoration: none;
+
+
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.new-button svg {
+    fill: #afaeac;
+}
+
+.new-button:hover {
+    background-color: #e6e6e6;
+    border: 1px solid #ccc;
+    text-decoration: none;
+
+
+}
+
+.new-button.twitter__icon:hover svg {
+    fill: #1DA1F2;
+}
+
+.new-button.instagram__icon:hover svg {
+    fill: #f76205ff;
+
+}
+
+.new-button:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    /*background-color: #000;*/
+
+    /*box-shadow: inset 0 0 6px 6px rgba(175, 171, 171, 0.54);*/
+    color: #0a0c0d;
+
+}
+
+
+.flag-item.new-button {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 0 14px 0 12px;
+}
+
+.flag-item.new-button image {
+    left: 4px;
+}
+
+.new-buttons {
+    display: flex;
+    font-size: 18px;
+    height: 42px;
+    min-width: 42px;
+    border: 1px solid #fff;
+    padding: 3px;
+    text-decoration: none;
+
+
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    position: relative;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.new-buttons:hover {
+    border: 1px solid #ccc;
+    background-color: #f76205ff;
+    color: #fff;
+
+    text-decoration: none;
+
+
+}
+
+.new-buttons:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    background-color: #f76205ff;
+    color: #0a0c0d;
+
+}
+
+.new-button-auth {
+    display: flex;
+    font-size: 18px;
+    height: 42px;
+    width: 75px;
+    color: #f76205ff;
+
+    border: 2px solid #f76205ff;
+    padding: 3px;
+    text-decoration: none;
+
+
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+
+.new-button-auth:hover {
+    background-color: #f76205ff;
+    border: none;
+    color: white;
+    text-decoration: none;
+}
+
+.new-button-auth:active {
+    color: #0a0c0d;
+}
+
+
+.new-button.twitter__icon:hover svg {
+    fill: #1DA1F2;
+}
+
+.new-button.instagram__icon:hover svg {
+    fill: #f76205ff;
+
+}
+
+.new-button-auth:active {
+    box-shadow: inset 0 3px 5px rgb(162, 72, 2);
+
+    /*box-shadow: inset 0 0 6px 6px rgba(175, 171, 171, 0.54);*/
+    color: #fff;
+
+}
+
+.new-button-auth.actives {
+    background-color: #f76205ff;
+}
+
+.new-button-auth.actives > div {
+    color: white;
+    background-color: #f76205ff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 0;
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.new-button.flags {
+    text-decoration: none;
+
+    color: #000
+}
+
+.new-button.flags:hover {
+
+}
+
+.new-button.flags:active:focus {
+    color: #000;
+    background-color: #0a0c0d;
+}
+
+
+.flag-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    position: absolute;
+    left: calc(50% - 21px);
+
+}
+
+.flag-containerdesktop {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 8px;
+
+}
+
+.flag-list{
+    max-height:min(calc(100vh - 435px), 50vh);
+}
+@media(max-height: 550px ){
+    .flag-list{
+        max-height:130px;
+    }
+}
+
+.AuthButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:4px ;
+}
+.AuthButton>div>div{ margin: 0 8px 0 0 }
+
+@media(max-width: 369px){
+    .AuthButton{
+        display: block;
+    }
+    .AuthButton>div{
+        margin-bottom: 5px;
+    }
+    .AuthButton>div:last-child{
+        margin-bottom: 0;
+    }
+}
+
+
+
 
 
 
