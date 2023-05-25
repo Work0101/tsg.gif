@@ -215,9 +215,9 @@ header{
     font-size: 18px;
     height: 42px;
     width: 75px;
-    color: #f76205ff;
+    color: #ff6600ff;
 
-    border: 2px solid #f76205ff;
+    border: 2px solid #ff6600ff;
     padding: 3px;
     text-decoration: none;
 
@@ -233,10 +233,9 @@ header{
 
 
 .new-button-auth:hover {
-    background-color: #f76205ff;
+    background-color: #fff;
     border: none;
     color: white;
-    text-decoration: none;
 }
 
 .new-button-auth:active {
@@ -342,6 +341,21 @@ header{
     }
 }
 
+
+._scroll{
+    transition: 0.8s all ease;
+}
+
+.on-scroll {
+/*transform: translate(0px ,-120px);*/
+    top: 0;
+    height: 70px;
+}
+
+.before-none:before{
+    content: none;
+    text-decoration: none;
+}
 
 
 

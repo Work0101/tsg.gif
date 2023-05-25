@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import {AiFillInstagram, AiOutlineTwitter} from "react-icons/ai";
-import {useSelector} from 'react-redux'
 import AuthButton from "./elements/AuthButton.jsx";
 import SocialIcon from "./elements/SocialIcon.jsx";
-import Logo from '../../assets/our_img/Orange logo background White.png'
-import LogoSvg from '../../assets/our_img/Orange_logo_background_White.svg'
+import SmallLogo from '../../assets/our_img/Color_logo_Orange_background_White_Обрезал_Белое (1).svg'
+
 
 import MenuButton from "./elements/MenuButton";
 import {NavLink} from "react-router-dom";
@@ -13,36 +12,64 @@ import "./elements/style.css"
 import FlagComponents from "./elements/FlagComponents";
 
 const Header = ({handelMenuButtonClick, menuIsOpen, matches, handelNavLinkButtonClick}) => {
+    const [scrollValue, setScrollValue] = useState(0)
 
+    const [isBigHeader, setIsBigHeader] = useState(true)
     const [mouseOnBlock, setState] = useState(false)
 
+    const handleScroll = () => {
+        setScrollValue(window.scrollY)
+        //     scrollValue.current = window.scrollY
+    };
+
+
+    React.useEffect(() => {
+        scrollValue >= 10 ? setIsBigHeader(false) : setIsBigHeader(true)
+        console.log(scrollValue, isBigHeader)
+    }, [scrollValue]);
+
+    React.useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header id="header" style={{height: "99px", borderBottom: "1px solid #C2C0C0FF", boxShadow: "none"}}
-                data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 91, 'stickySetTop': '-91px', 'stickyChangeLogo': true}  ">
-            <div className="header-body border-0 ">
+        <header id="header"
+                style={{height: "99px", borderBottom: "1px solid #C2C0C0FF", boxShadow: "none"}}
+                className={`_scroll   d-flex  align-items-center`}
+            data-plugin-options="{'stickyEnabled': false, 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': true, 'stickyStartAt': 91, 'stickySetTop': '-91px', 'stickyChangeLogo': true}  "
+        >
+            <div className={`header-body border-0  `}>
                 <div className="border-bottom-light">
                     <div className="header-container container container-xl-custom">
                     </div>
                 </div>
-                <div className="header-nav-bar z-index-0 d-flex" >
-                    <div className="container container-xl-custom"  style={{ display:"flex", justifyContent:"center"}}>
-                        <div className="header-row py-2 " style={{width:"1416px"}}>
-                            <div className="header-column">
-                                <div className="header-row">
-                                    <div className="header-logo m-0">
-                                        <NavLink to={`/`}>
-                                            <img alt="Porto" width="160" height="80"
-                                                 src={LogoSvg} alt={"LOGO"}/>
-                                        </NavLink>
+                <div className="header-nav-bar z-index-0 d-flex d-flex  align-items-center">
+                    <div className="container container-xl-custom _scroll d-flex  align-items-center" style={{
+                        justifyContent: "center",
+
+                    }}>
+                        <div className="header-row d-flex align-items-center  "
+                             style={{width: "1416px", display: "flex", justifyContent: "center", alignItems: "center"}}>
+                            <div className="header-column d-flex align-item-center">
+                                <div className="header-row d-flex align-item-center">
+                                    <div className="header-logo m-0 d-flex align-item-center">
+                                            {<NavLink to={`/`} style={{display: "flex", alignItems: "center"}}>
+                                                <img alt="Porto" height={"40px"}
+                                                     src={SmallLogo} alt={"LOGO"}/>
+                                            </NavLink>}
+
+
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="header-column">
-                                <div className="header-row align-items-center justify-content-end">
-                                    <div className="header-nav header-nav-links justify-content-start pb-1 d-flex flex-row align-items-center "
-                                         style={{overflowY: "visible"}}>
-                                        <NewDropdownMenu setState={()=>setState()}
+                            <div className="header-column d-flex  align-items-center">
+                                <div className="header-row d-flex  align-items-center justify-content-end">
+                                    <div
+                                        className=" d-flex align-items-center header-nav header-nav-links justify-content-start pb-1  flex-row "
+                                        style={{overflowY: "visible"}}>
+                                        <NewDropdownMenu setState={() => setState()}
                                                          mouseOnBlock={mouseOnBlock}
                                                          matches={matches}
                                                          handelNavLinkButtonClick={handelNavLinkButtonClick}
@@ -83,7 +110,8 @@ const Header = ({handelMenuButtonClick, menuIsOpen, matches, handelNavLinkButton
                     </div>
                 </div>
             </div>
-        </header>)
+        </header>
+)
 }
 
 

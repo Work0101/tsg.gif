@@ -7,12 +7,12 @@ import React from "react";
 const NewDropdownMenu = ({setState, mouseOnBlock, matches, handelNavLinkButtonClick, menuIsOpen}) =>{
 console.log(menuIsOpen)
     return(       <div
-        className="header-nav-main header-nav-main-text-capitalize header-nav-main-effect-2 header-nav-main-sub-effect-1  d-justify-content-center"
+        className="header-nav-main header-nav-main-text-capitalize header-nav-main-effect-2 header-nav-main-sub-effect-1"
  >
-        <nav className="collapse">
-            <ul className="nav nav-pills" id="mainNav"
+        <nav className="collapse " >
+            <ul className={`nav-pills  ${matches&&"before-none"}`} id="mainNav"
 
-                style={{display:"flex",width: "100%", paddingBottom: "5px", paddingTop:"0", borderTop:matches&&"1px solid #e8e8e8", backgroundColor:"#fff" }}
+                style={{display:"flex",width: "100%", paddingTop:"0", borderTop:matches&&"1px solid #e8e8e8", backgroundColor:"#fff" , margin:"0",paddingBootom:"0" }}
                 onMouseEnter={() => setState(true)}
                 onMouseLeave={() => setState(false)}>
 

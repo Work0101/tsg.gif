@@ -7226,7 +7226,7 @@ html.boxed .body {
 	width: 0;
 	height: 3px;
 	background-color: #f76205ff;
-	transition: width 0.3s ease-in-out;
+	transition: all 0.3s ;
 }
 .underline-animation:hover > div{
 	color: #f76205ff;
