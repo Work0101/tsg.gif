@@ -215,9 +215,9 @@ header{
     font-size: 18px;
     height: 42px;
     width: 75px;
-    color: #ff6600ff;
+    color: #f76205ff;
 
-    border: 2px solid #ff6600ff;
+    border: 2px solid #f76205ff;
     padding: 3px;
     text-decoration: none;
 
@@ -233,9 +233,10 @@ header{
 
 
 .new-button-auth:hover {
-    background-color: #fff;
+    background-color: #f76205ff;
     border: none;
     color: white;
+    text-decoration: none;
 }
 
 .new-button-auth:active {
@@ -312,8 +313,14 @@ header{
 
 }
 
-.flag-list{
-    max-height:min(calc(100vh - 435px), 50vh);
+.flag-list {
+    position: absolute;
+    overflow-x: hidden !important;
+    max-height: min(calc(100vh - 435px), 50vh);
+    transform: none !important;
+    inset: initial !important;
+    left: 0 !important;
+    top: 42px !important;
 }
 @media(max-height: 550px ){
     .flag-list{
@@ -329,33 +336,78 @@ header{
 }
 .AuthButton>div>div{ margin: 0 8px 0 0 }
 
-@media(max-width: 369px){
-    .AuthButton{
+@media (max-width: 359px) {
+    .AuthButton {
         display: block;
     }
-    .AuthButton>div{
+
+    .AuthButton > div {
         margin-bottom: 5px;
     }
-    .AuthButton>div:last-child{
+
+    .AuthButton > div:last-child {
         margin-bottom: 0;
     }
 }
 
-
-._scroll{
-    transition: 0.8s all ease;
+.logo-img {
+    height: 80px;
 }
 
-.on-scroll {
-/*transform: translate(0px ,-120px);*/
-    top: 0;
-    height: 70px;
+.small-logo-container {
+    width: 220px;
+
 }
 
-.before-none:before{
-    content: none;
-    text-decoration: none;
+@media (max-width: 462px) {
+    .logo-img {
+        height: 70px;
+    }
+
+    .small-logo-container {
+        width: 192px;
+
+    }
 }
+
+@media (max-width: 418px) {
+    .logo-img {
+        height: 60px;
+    }
+
+    .small-logo-container {
+
+        width: 164px;
+    }
+}
+
+@media (max-width: 393px) {
+    .logo-img {
+        height: 50px;
+    }
+
+    .small-logo-container {
+        width: 137px;
+    }
+}
+
+
+.logo-img2 {
+    height: 50px;
+}
+
+
+.locked-custom {
+    pointer-events: none;
+    user-select: none;
+}
+
+
+.header2 {
+    background-color: #FFF;
+    position: relative;
+}
+
 
 
 

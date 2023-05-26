@@ -22,7 +22,7 @@ const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonCl
             else if ("/"+loca === link && !isSelect) style += " active"
             else if ("/"+loca === link) style += ' underline-active active  '
         } else {
-            style = "before-none"
+            style = ""
         }
 
 
@@ -33,7 +33,7 @@ const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonCl
 
             onClick={() => handelNavLinkButtonClick()}
             data-bs-toggle={matches ? "collapse" : ""}
-            data-bs-target={matches ? "header-nav-main nav" : ""}
+            data-bs-target={matches ? ".header-nav-main nav" : ""}
             style={{
                 display: "flex",
                 alignItems: "center",
@@ -71,7 +71,7 @@ const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonCl
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        border: inMenu && "none",
+                        border: inMenu && "none"
 
                     }}
                     className={inMenu ? "new-button-auth" : "new-button"}

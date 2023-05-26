@@ -33,18 +33,18 @@ const FlagComponents = ({
         <div className="dropdown  nav-item p-0"  style={{maxHeight: "100vh", width: matches ? "100%" : "60px"}}>
             <div className={`d-flex   justify-content-center  ${matches ? "new-button-auth" : "new-button"}`}
                  data-bs-toggle="dropdown"
-                 style={{padding: 0, maxHeight: "100vh", scrollBehavior: "auto",  width: matches ? "100%" : "60px", border:"none"}}
+                 style={{padding: 0, maxHeight: "100vh", scrollBehavior: "auto",  width: matches ? "100%" : "60px", border:"none", position:"relative"}}
                  aria-expanded="false">
                 <div
                     className={`my-auto `}
-                     style={{padding: 0, width: matches  ? "100%" : "60px", border: "none", scrollBehavior: "auto", margin:"0 auto", transform:" none !important", cursor: "pointer" }}>
+                     style={{padding: 0, width: matches  ? "100%" : "60px", border: "none", scrollBehavior: "auto",  transform:" none !important", cursor: "pointer", margin:" 0 5px 0 5px" }}>
 
-                    <div id={'dropdownFlagMenuShellSite '} className={"d-flex justify-content-center"}>
+                    <div id={'dropdownFlagMenuShellSite '} className={"d-flex justify-content-center locked-custom"}>
                         <img src={langInfo.countryFlag} alt={"flag"} height={"20px"} width={"36px"} style={{cursor: "pointer"}}/>
                     </div>
 
                     <div className="dropdown-menu p-0 flag-list "  aria-labelledby="dropdownFlagMenuShellSite"
-                         style={{  overflow: mediaresualt?"scroll":"hidden",overflowX:"hidden",  width:matches?"100%":"180px",  }}>
+                         style={{  overflow: mediaresualt?"scroll":"hidden",overflowX:"hidden",  width:matches?"100%":"180px", transform: "none !important",left: "0 !important"  }}>
                         <FlagItem element={unitedkingdom} name={'English'} code={"en"}
                                   handelNavLinkButtonClick={handelNavLinkButtonClick} menuIsOpen={menuIsOpen}/>
                         <FlagItem element={germany} name={'Deutsch'} code={"de"}

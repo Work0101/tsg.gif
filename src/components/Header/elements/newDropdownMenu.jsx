@@ -5,14 +5,13 @@ import FlagComponents from "./FlagComponents";
 import React from "react";
 
 const NewDropdownMenu = ({setState, mouseOnBlock, matches, handelNavLinkButtonClick, menuIsOpen}) =>{
-console.log(menuIsOpen)
     return(       <div
-        className="header-nav-main header-nav-main-text-capitalize header-nav-main-effect-2 header-nav-main-sub-effect-1"
+        className="header-nav-main header-nav-main-text-capitalize header-nav-main-effect-2 header-nav-main-sub-effect-1  d-justify-content-center"
  >
-        <nav className="collapse " >
-            <ul className={`nav-pills  ${matches&&"before-none"}`} id="mainNav"
+        <nav className="collapse" style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
+            <ul className="nav nav-pills" id="mainNav"
 
-                style={{display:"flex",width: "100%", paddingTop:"0", borderTop:matches&&"1px solid #e8e8e8", backgroundColor:"#fff" , margin:"0",paddingBootom:"0" }}
+                style={{display:"flex",width: "90wh", padding: "0px", borderTop:matches&&"1px solid #e8e8e8", backgroundColor:"#fff", margin:0 }}
                 onMouseEnter={() => setState(true)}
                 onMouseLeave={() => setState(false)}>
 
@@ -34,7 +33,7 @@ console.log(menuIsOpen)
                                mouseOnBlock={mouseOnBlock} matches={matches}
                                inMenu={matches}
                                handelNavLinkButtonClick={handelNavLinkButtonClick}/>
-                {matches && (<><li>
+                {matches && (<><li style={{padding:0}}>
 
                     <SocialIcon icon={<AiOutlineTwitter size={"28px"}/>}
                                 title={"Twitter"}

@@ -7253,4 +7253,14 @@ html.boxed .body {
 
 }
 
+.locked-custom{
+	-moz-user-select: none;
+	-o-user-select:none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+}
+
 

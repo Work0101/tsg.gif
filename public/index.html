@@ -4,17 +4,15 @@
 
   <!-- Basic -->
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Demo Renewable Energy | Porto - Multipurpose Website Template</title>
+  <title></title>
 
   <meta name="keywords" content="WebSite Template" />
   <meta name="description" content="Porto - Multipurpose Website Template">
   <meta name="author" content="okler.net">
+  <meta http-equiv="imagetoolbar" content="no" />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
@@ -46,7 +44,7 @@
 <!--  <link href='assets2/vendor/1animate/animate.compat.css' rel="stylesheet">-->
 <!--  <link href='assets2/vendor/1fontawesome-free/css/all.min.css' rel="stylesheet">-->
 <!--  <link href=  "assets2/valex/plugins/bootstrap/css/bootstrap.min.css"rel="stylesheet">-->
-  <link rel="icon" type="image/x-icon" href="/imgonline-com-ua-favicon-sMvdj9VOcJc3.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Head Libs -->
 <!--  <script src="assets2/vendor/modernizr/modernizr.min.js"></script>-->
@@ -91,6 +89,17 @@
 <!--    <script src="assets2/valex/js/themecolor.js"></script>-->
 
     <!-- custom js -->
+    <script>
+      let img = document.getElementsByTagName('img');
+
+      for(let i in img)
+      {
+        img[i].oncontextmenu = function()
+        {
+          return false;
+        }
+      }
+    </script>
     <script src="assets2/js/custom.js"></script>
     <!-- Vendor -->
     <script src="assets2/vendor/plugins/js/plugins.min.js"></script>

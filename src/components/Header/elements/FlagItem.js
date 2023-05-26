@@ -43,7 +43,7 @@ const FlagItem = ({
                 <div  className={menuIsOpen?'flag-container':"flag-containerdesktop"}>
 <span className="  me-3  ">
                         <div className={"d-flex justify-content-center "}></div>
-                        <img src={element} height={"24px"} width={"42px"}/>
+                        <img src={element} height={"24px"} width={"42px"} className={"locked-custom"}/>
                     </span>
                     <div className="d-flex align-items-center">
                         <span className="mt-2">{name}</span>
