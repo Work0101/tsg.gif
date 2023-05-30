@@ -14232,20 +14232,23 @@ html.boxed .nav-secondary.sticky-active {
 /* Scroll to Top */
 html .scroll-to-top {
 	transition: opacity 0.3s;
-	background: #404040;
-	border-radius: 4px 4px 0 0;
-	bottom: 0;
+	background: #a29d9d;
+	border-radius: 4px;
 	color: #FFF;
-	display: block;
-	height: 9px;
+	padding-top:12px ;
+	display: flex;
+	height: 42px;
 	opacity: 0;
-	padding: 10px 10px 35px;
 	position: fixed;
 	right: 10px;
 	text-align: center;
 	text-decoration: none;
-	min-width: 50px;
+	bottom: 35px;
+	width: 42px;
+
+	align-content: center;
 	z-index: 1040;
+	justify-content: center;
 	font-size: 0.8em;
 }
 

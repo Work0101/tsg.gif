@@ -1,0 +1,32 @@
+.grid{
+    display: grid;
+    grid-gap: 20px;
+    justify-content: space-between;
+}
+.grid-template {
+    grid-template-columns: repeat(4, 150px);
+}
+
+@media (max-width: 768px) {
+    .grid-template {
+
+        grid-template-columns: repeat(2, auto);
+        justify-content: center;
+        grid-gap: 80px;
+
+
+    }
+}
+
+#footer{
+    /*margin: 0 auto;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*position: absolute !important;*/
+    /*bottom: 0;*/
+}
+
+
+/*a.active>li>div{*/
+/*    color: #f76205ff !important;*/
+/*}*/

@@ -61,7 +61,7 @@ header{
 }
 
 .social-icons-containers.instagram__icon:hover svg {
-    fill: #f76205ff;
+    fill: #ef27a2ff;
 }
 
 .social-icons-containers:active {
@@ -120,7 +120,7 @@ header{
     height: 42px;
     min-width: 42px;
     border: 1px solid #fff;
-    padding: 3px;
+    padding: 6px;
     text-decoration: none;
 
 
@@ -150,7 +150,7 @@ header{
 }
 
 .new-button.instagram__icon:hover svg {
-    fill: #f76205ff;
+    fill: #ef27a2ff;
 
 }
 
@@ -243,13 +243,25 @@ header{
     color: #0a0c0d;
 }
 
+.new-button-auth.active {
+    background-color: #f76205ff;
+    color: #fff;
+}
+
+
+
 
 .new-button.twitter__icon:hover svg {
     fill: #1DA1F2;
 }
 
 .new-button.instagram__icon:hover svg {
-    fill: #f76205ff;
+    fill: #ef27a2ff;
+
+}
+
+.new-button.telegram__icon:hover svg {
+    fill: #33a8e4;
 
 }
 
@@ -354,10 +366,10 @@ header{
     height: 80px;
 }
 
-.small-logo-container {
-    width: 220px;
+/*.small-logo-container {*/
+/*    width: 220px;*/
 
-}
+/*}*/
 
 @media (max-width: 462px) {
     .logo-img {

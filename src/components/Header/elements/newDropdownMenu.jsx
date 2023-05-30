@@ -8,12 +8,13 @@ const NewDropdownMenu = ({setState, mouseOnBlock, matches, handelNavLinkButtonCl
     return(       <div
         className="header-nav-main header-nav-main-text-capitalize header-nav-main-effect-2 header-nav-main-sub-effect-1  d-justify-content-center"
  >
-        <nav className="collapse" style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
+        <nav className="collapse" style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}
+             onMouseEnter={()=>setState(true)}
+             onMouseLeave={()=>setState(false)}>
             <ul className="nav nav-pills" id="mainNav"
 
-                style={{display:"flex",width: "90wh", padding: "0px", borderTop:matches&&"1px solid #e8e8e8", backgroundColor:"#fff", margin:0 }}
-                onMouseEnter={() => setState(true)}
-                onMouseLeave={() => setState(false)}>
+                style={{display:"flex",width: "90wh", padding: "0px", borderTop:matches&&"1px solid #e8e8e8", backgroundColor:"#fff", margin:" 0 0 0 10px", flexWrap:"nowrap" }}>
+
 
 
 
@@ -30,6 +31,10 @@ const NewDropdownMenu = ({setState, mouseOnBlock, matches, handelNavLinkButtonCl
                                inMenu={matches}
                                handelNavLinkButtonClick={handelNavLinkButtonClick}/>
                 <NavLinkCustom link={"/legal"} text={"Legal"}
+                               mouseOnBlock={mouseOnBlock} matches={matches}
+                               inMenu={matches}
+                               handelNavLinkButtonClick={handelNavLinkButtonClick}/>
+                <NavLinkCustom link={"/faq"} text={"FAQ"}
                                mouseOnBlock={mouseOnBlock} matches={matches}
                                inMenu={matches}
                                handelNavLinkButtonClick={handelNavLinkButtonClick}/>

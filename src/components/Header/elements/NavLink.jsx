@@ -1,5 +1,5 @@
 import {NavLink, useLocation} from "react-router-dom";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import './style.css'
 import {useSelector} from "react-redux";
 
@@ -23,6 +23,8 @@ const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonCl
             else if ("/"+loca === link) style += ' underline-active active  '
         } else {
             style = ""
+            if ("/" + loca === link && !isSelect) style += " active"
+
         }
 
 
@@ -40,7 +42,7 @@ const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonCl
                 justifyContent: inMenu && "center",
                 width: inMenu && "100%",
                 padding:" 0 ",
-                margin:!matches?" 0 20px 0 0px":"0"
+                margin:!matches?" 0 14px 0 0px":"0"
 
             }}
         >
@@ -67,14 +69,14 @@ const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonCl
                         width: inMenu && "100%",
                         fontSize: "18px",
                         height: "42px",
-                        padding: " 0  6px",
+                        padding: " 0  10px",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
                         border: inMenu && "none"
 
                     }}
-                    className={inMenu ? "new-button-auth" : "new-button"}
+                    className={inMenu ? `new-button-auth  ${!mouseOnBlock&&"/"+loca === link?"active":""}`  : "new-button"}
                 >
                     {text}
                 </div>

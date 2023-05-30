@@ -8,6 +8,7 @@ import MenuButton from "./elements/MenuButton";
 import {NavLink} from "react-router-dom";
 import NewDropdownMenu from "./elements/newDropdownMenu";
 import "./elements/style.css"
+
 import FlagComponents from "./elements/FlagComponents";
 
 const Header = ({handelMenuButtonClick, menuIsOpen, matches, handelNavLinkButtonClick}) => {
@@ -33,15 +34,15 @@ const Header = ({handelMenuButtonClick, menuIsOpen, matches, handelNavLinkButton
                      className={`_scroll  d-flex align-items-center justify-content-center`}>
                 <div className={`${matches && 'header-body'} border-0  `} style={{                         display: scrollValue < 62 ? "flex " : "none",
                 }}>
-                    <div className="header-nav-bar z-index-0 d-flex d-flex  align-items-center" s>
+                    <div className="header-nav-bar z-index-0 d-flex d-flex  align-items-center " style={{justifyContent:"space-between"}}>
                         <div className="container container-xl-custom d-flex _scroll align-items-center" style={{
                             justifyContent: "center",
                         }}>
-                            <div className="header-row d-flex align-items-center  "
+                            <div className="header-row"
                                  style={{
                                      width: "1416px",
                                      display: "flex",
-                                     justifyContent: "center",
+                                     justifyContent: "space-between",
                                      alignItems: "center"
                                  }}>
                                 <div className="header-column d-flex align-item-center">
@@ -60,7 +61,7 @@ const Header = ({handelMenuButtonClick, menuIsOpen, matches, handelNavLinkButton
                                         <div
                                             className=" d-flex align-items-center header-nav header-nav-links justify-content-start pb-1  flex-row "
                                             style={{overflowY: "visible"}}>
-                                            <NewDropdownMenu setState={() => setState()}
+                                            <NewDropdownMenu setState={setState}
                                                              mouseOnBlock={mouseOnBlock}
                                                              matches={matches}
                                                              handelNavLinkButtonClick={handelNavLinkButtonClick}

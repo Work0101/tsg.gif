@@ -1,108 +1,79 @@
-import logoPng from '../../assets/our_img/Orange logo background White.png'
+import "./elements/style.css"
+
 import {AiFillInstagram, AiOutlineTwitter} from "react-icons/ai";
+import {FaTelegramPlane} from "react-icons/fa";
+import {useSelector} from "react-redux"
+import "../Header/elements/style.css"
+
+import Column from "./elements/Column"
 import React from "react";
+import SocialIcons from "../../components/Header/elements/SocialIcon"
 
 const Footer = () => {
-    return (
-        <footer id="footer" className="position-relative bg-quaternary mt-0 border-top-0">
-            <div className="container container-xl-custom pt-4 pb-3">
-                <div className="row pt-1">
-                    <div className="col-md-6 col-lg-2 mt-4 mt-lg-0 d-flex align-items-center">
-                        <div>
-                            <img src={logoPng} width={"130px"}/>
-                            <div className="col mt-4 ">
-                                <p className="text-left text-color-grey text-1 mb-0">Porto © 2022. All Rights
-                                    Reserved.</p>
-                            </div>
+       const lang = useSelector(state => state.language.LanguageCode)
+
+    const dataForSocialIcons = [
+        {
+            icon: <AiOutlineTwitter size={"28px"}/>,
+            url: "http://www.twitter.com/",
+            name: "twitter__icon",
+            title: "Twitter"
+        },
+        {
+            icon: <AiFillInstagram size={"28px"}/>,
+            url: "http://www.instagram.com/",
+            name: "instagram__icon",
+            title: "Instagram"
+        },
+        {
+            icon: <FaTelegramPlane size={"28px"}/>,
+            url: "http://www.telegram.com/",
+            name: "telegram__icon",
+            title: "Telegram"
+        }, {
+            icon: <FaTelegramPlane size={"28px"}/>,
+            url: "http://www.telegram.com/",
+            name: "telegram__icon",
+            title: "Telegram"
+        }, {
+            icon: <FaTelegramPlane size={"28px"}/>,
+            url: "http://www.telegram.com/",
+            name: "telegram__icon",
+            title: "Telegram"
+        },]
+
+    const data = [{title: "Home", data: [{name:"Home", url:"/"},{name:"Marketing", url:"/marketing"},{name:"Quotes", url:"/quotes"},{name:"FAQ", url:"/faq"}]},
+        {
+            title: "Legal", data: [{name:"Disclaimer", url:"/legal/disclaimer"},{name:"Cookies", url:`/legal/cookies`}, {name:"Privacy", url:"/legal/privacy"},{name:"Terms", url:"/legal/terms"}]
+        }, {
+            title: "Legal", data: [{name:"Contact Us", url:"/legal/contactus"},{name:"GDPR", url:"/legal/gdpr"}]
+        },]
+    return (<footer id="footer" className="position-relative bg-quaternary "
+                    style={{borderTop: "1px solid #C2C0C0FF", userSelect:"none",}}>
+            <div className="   container " style={{paddingTop:"17px", paddingBottom:"10px"}}>
+
+                <div className={"grid grid-template"}>
+                    {data.map(item => <Column data={item} />)}
+                    <div className=" d-flex  flex-column align-items-center">
+                        <h3 className="text-4-5 text-color-dark" style={{marginBottom:"6px"}}>Follow US</h3>
+                        <div className="list list-unstyled  font-weight-medium  "
+                             style={{display: "grid", gridTemplateColumns: "repeat(2, 42px)"}}>
+
+                            {dataForSocialIcons.map(items => <SocialIcons {...items}/>)}
                         </div>
                     </div>
 
-                    <div className="col-md-6 col-lg-2 mt-4 mt-lg-0">
-                        <h3 className="mb-3 text-4-5 text-color-light">Services</h3>
-                        <ul className="list list-unstyled  font-weight-medium">
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Residential Solar
-                                    Panels
-                                </div>
-                            </li>
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Commercial Solar
-                                    Panels
-                                </div>
-                            </li>
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Energy Stations</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-md-6 col-lg-2 mt-4 mt-lg-0">
-                        <h3 className="mb-3 text-4-5 text-color-light">Services</h3>
-                        <ul className="list list-unstyled  font-weight-medium">
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Residential Solar
-                                    Panels
-                                </div>
-                            </li>
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Commercial Solar
-                                    Panels
-                                </div>
-                            </li>
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Energy Stations</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-md-6 col-lg-2 mt-4 mt-lg-0">
-                        <h3 className="mb-3 text-4-5 text-color-light">Services</h3>
-                        <ul className="list list-unstyled  font-weight-medium">
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Residential Solar
-                                    Panels
-                                </div>
-                            </li>
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Commercial Solar
-                                    Panels
-                                </div>
-                            </li>
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Energy Stations</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-md-6 col-lg-2 mt-4 mt-lg-0">
-                        <h3 className="mb-3 text-4-5 text-color-light">Services</h3>
-                        <ul className="list list-unstyled  font-weight-medium">
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Residential Solar
-                                    Panels
-                                </div>
-                            </li>
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Commercial Solar
-                                    Panels
-                                </div>
-                            </li>
-                            <li>
-                                <div className="text-color-grey text-color-hover-primary">Energy Stations</div>
-                            </li>
-                        </ul>
-                    </div>
 
-                    <div className="col-md-6 col-lg-2 mt-4 mt-lg-0">
-                        <h3 className="mb-3 text-4-5 text-color-light">Contact US</h3>
-                        <ul className="list list-unstyled  font-weight-medium ">
-
-                            <a href={"https://www.instagram.com/"}>
-                                <AiOutlineTwitter size={"36px"} color={"#EEEEEE"}/>
-                            </a>
-                            <a href={"https://twitter.com/"}>
-                                <AiFillInstagram size={"36px"} color={"#EEEEEE"}/>
-                            </a>
-                        </ul>
-                    </div>
                 </div>
+
+            </div>
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderTop: "1px solid #C2C0C0FF"
+            }}>
+                <p className="text-left text-1 mb-0" style={{color:"#707070"}}>TSG.GIFT © 2023. All Rights Reserved.</p>
             </div>
 
         </footer>

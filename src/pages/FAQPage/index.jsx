@@ -2,11 +2,11 @@
 import {useState} from "react";
 
 
-const GalleryPage = () => {
+const FAQPage = () => {
     const [state, setState] = useState()
-    console.log("GalleryPage page rerender")
+    console.log("FAQPage page rerender")
     return (<div style={{height:"100vh", width:"100vw"}}>
-        GalleryPage    </div>)
+        FAQPage    </div>)
 }
 
-export default GalleryPage
+export default FAQPage

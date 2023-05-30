@@ -2132,7 +2132,7 @@ html.sticky-header-enabled.sticky-header-active #header .header-logo-sticky-chan
 	#header .header-nav {
 		display: flex;
 		align-items: center;
-		flex-grow: 1;
+		/*  flex-grow: 1;*/
 		justify-content: flex-end;
 		align-self: stretch;
 	}
@@ -9978,7 +9978,7 @@ a.text-light:focus, a.text-light:hover {
 
 /* #Footer */
 #footer {
-	background: #212529;
+	background: #fff !important;
 	border-top: 4px solid #212529;
 	font-size: 0.9em;
 	margin-top: 50px;
