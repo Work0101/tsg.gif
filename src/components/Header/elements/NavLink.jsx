@@ -23,7 +23,7 @@ const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonCl
             else if ("/"+loca === link) style += ' underline-active active  '
         } else {
             style = ""
-            if ("/" + loca === link && !isSelect) style += " active"
+            // if ("/" + loca === link && !isSelect) style += " active"
 
         }
 

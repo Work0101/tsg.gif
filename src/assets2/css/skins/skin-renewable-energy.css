@@ -7240,24 +7240,24 @@ html.boxed .body {
 	content: '';
 	position: absolute;
 	left: 5%;
-	bottom: 13px;
 	width: 90%;
+	bottom:13px;
 	height: 3px;
 	background-color: #f76205ff;
 }
 
 
-.container111{
-	margin: 0 10px;
-}
+
 
 ._nav-item .underline-active::before{
-	bottom: 3px;
+	top:36px;
+
+
 }
 ._nav-item .underline-animation::before{
 	bottom: 3px;
 }
-._nav-item .underline-animation:hover::before {
-	width: 0;
-}
+/*._nav-item .underline-animation:hover::before {*/
+/*	width: 0;*/
+/*}*/
 

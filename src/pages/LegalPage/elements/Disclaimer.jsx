@@ -1,55 +1,70 @@
-import { Worker } from '@react-pdf-viewer/core';
-import {useState} from 'react'
+import {createStore, SpecialZoomLevel, Viewer, Worker} from '@react-pdf-viewer/core';
+import {useMemo} from 'react'
 import '@react-pdf-viewer/core/lib/styles/index.css';
-import { Viewer } from '@react-pdf-viewer/core';
+import {BsZoomIn, BsZoomOut} from "react-icons/bs";
+import {TbZoomReplace} from "react-icons/tb";
+import {zoomPlugin} from '@react-pdf-viewer/zoom';
 import pdf from '../../../assets/pdf/Документ Microsoft Word.pdf'
-import { zoomPlugin } from '@react-pdf-viewer/zoom';
 import '@react-pdf-viewer/zoom/lib/styles/index.css';
 
 
+const Disclaimer = () => {
 
-
-const Disclaimer = () =>{
-    const [scale, setScale] = useState(1);
-
-    const handleZoomIn = () => {
-        setScale(scale + 0.1);
+    const customZoomPlugin = () => {
+        const store =  createStore();
+        return {
+            install: (pluginFunctions) => {
+                store.update('zoom', pluginFunctions.zoom);
+            },
+            zoomTo: (scale) => {
+                const zoom = store.get('zoom');
+                if (zoom) {
+                    // Zoom to that scale
+                    zoom(scale);
+                }
+            },
+        };
     };
+    const customZoomPluginInstance = customZoomPlugin();
+    const {zoomTo} = customZoomPluginInstance;
 
-    const handleZoomOut = () => {
-        if (scale > 0.1) {
-            setScale(scale - 0.1);
-        }
-    };
-    const zoomPluginInstance = zoomPlugin({enableShortcuts:false})
+    const zoomPluginInstance = zoomPlugin({enableShortcuts: true})
+    return (
+        <div style={{width: "100%", height: '100%', }}>
 
-    return(
-<div>
-    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-
-
-        <div  style={{
-            border: '1px solid rgba(0, 0, 0, 0.3)',
-            height: '750px',
-        }}
-        >
-            <zoomPluginInstance.ZoomInButton style={{width:"40px"}}/>
-            <zoomPluginInstance.ZoomOutButton style={{width:"40px"}}/>
-            {/*<button onClick={()=>zoomPluginInstance.CurrentScale}>*/}
-            {/*    reset zoom*/}
-            {/*</button>*/}
-            {/*<zoomPluginInstance.CurrentScale style={{width:"40px"}}/>*/}
+            <div className={'pdf-container'}>
+                <div style={{position: "absolute", top: "0", right: "0", zIndex: "109876567890"}}>
+                    <zoomPluginInstance.ZoomIn>
+                        {(props) =>
+                            <div onClick={props.onClick} className={"zoom-button"}><BsZoomIn size={'28px'}/></div>}
+                    </zoomPluginInstance.ZoomIn>
+                    <zoomPluginInstance.ZoomOut>
+                        {(props) =>
+                            <div onClick={props.onClick} className={"zoom-button"}><BsZoomOut size={'28px'}/></div>}
+                    </zoomPluginInstance.ZoomOut>
+                    <div onClick={() => zoomTo(SpecialZoomLevel.PageWidth)} className={"zoom-button"}><TbZoomReplace
+                        size={'28px'}/></div>
 
 
+                </div>
+
+                <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
 
 
-            <Viewer fileUrl={pdf} defaultScale={scale}
-                    plugins={[zoomPluginInstance]}/>
+                    {/*<button onClick={()=>zoomPluginInstance.CurrentScale}>*/}
+                    {/*    reset zoom*/}
+                    {/*</button>*/}
+                    {/*<zoomPluginInstance.CurrentScale style={{width:"40px"}}/>*/}
+
+
+                    <Viewer fileUrl={pdf}
+                            plugins={[zoomPluginInstance, customZoomPluginInstance]}/>
+
+                </Worker>
+            </div>
+
+
         </div>
-
-    </Worker>
-
-</div>
 
     )
 }

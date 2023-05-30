@@ -46,7 +46,7 @@ Theme Version:	9.8.0
 		$(this).timepicker({
 			disableMousewheel: true,
 			icons: {
-				up: 'fas fa-chevron-up',
+				up: ' fas fa-chevron-up',
 				down: 'fas fa-chevron-down'
 			}
 		});

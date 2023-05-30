@@ -52,11 +52,11 @@ const lang = useSelector(state =>state.language.LanguageCode)
                         <Route index element={<HomePage/>}/>
                         <Route path={`/:code/legal/`} element={<LegalPage/>}>
                             <Route path={`disclaimer`} element={<Disclaimer/>}/>
-                            <Route path={`cookies`} element={<div style={{height:"100vh"}}>Cookies</div>}/>
-                            <Route path={`privacy`} element={<div style={{height:"100vh"}}>Privacy</div>}/>
-                            <Route path={`terms`} element={<div style={{height:"100vh"}}>Terms</div>}/>
-                            <Route path={`gdpr`} element={<div style={{height:"100vh"}}>GDPR</div>}/>
-                            <Route path={`contactus`} element={<div style={{height:"100vh"}}>Contact Us</div>}/>
+                            <Route path={`cookies`} element={<Disclaimer/>}/>
+                            <Route path={`privacy`} element={<Disclaimer/>}/>
+                            <Route path={`terms`} element={<Disclaimer/>}/>
+                            <Route path={`gdpr`} element={<Disclaimer/>}/>
+                            <Route path={`contactus`} element={<Disclaimer/>}/>
                         </Route>
 
                         <Route path={`/:code/quotes/`} element={<ServicesPage/>}/>

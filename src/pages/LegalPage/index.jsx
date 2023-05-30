@@ -10,6 +10,7 @@ import './elements/style.css'
 const LegalPage = () => {
 
     const lang = useSelector(state => state.language.LanguageCode)
+    const [mouseOnBlock, setMousePosition] = React.useState(false)
 
     const location = useLocation()
 
@@ -27,12 +28,15 @@ const LegalPage = () => {
         }, {name: 'GDPR', url: "/" + lang + "/legal/gdpr"}, {name: 'Contact Us', url: "/" + lang + "/legal/contactus"}]
     const isUnderline = (link) => {
         let style = 'underline-animation'
-             if (loca === link) style += ' underline-active active  '
+             if (mouseOnBlock&&loca === link) style += '  '
+        else if (!mouseOnBlock&&loca === link) style = 'underline-active active  '
+
         return style
     }
     return (
-        <div>
-            <div className={'_nav-containers'}>
+        <div style={{height:"calc(100vh - 187px)", userSelect:"none",  width:"100%"}} >
+            <div className={'_nav-containers'}   onMouseEnter={()=>setMousePosition(true)}
+                 onMouseLeave={()=>setMousePosition(false)}>
                 {section.map(items =>
                     <div className={'_nav-item '} >
                         <NavLink to={items.url}  className={()=>isUnderline(items.url)}>
