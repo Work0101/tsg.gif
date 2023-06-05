@@ -33,6 +33,7 @@ const FlagItem = ({
 
             }}>
             <a className={`    dropdown-item new-button flags `}
+               href={name + " Flag"}
                style={{
                    display: "flex", cursor: "pointer", justifyContent: menuIsOpen ? "center" : "start",
                    width: "100%",

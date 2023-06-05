@@ -1,0 +1,407 @@
+.big-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.select-item--container {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    height: 42px;
+    width: 100%;
+    max-width: 160px;
+    border: 1px solid #707070;
+    border-radius: 5px;
+    transition: all 0.3s;
+
+    &:hover {
+        background: #e8e8e8;
+
+        div {
+            color: #f76205ff;
+            background: none;
+
+            svg {
+                fill: #f76205ff;
+            }
+        }
+    }
+
+    &:active {
+        box-shadow: inset 0 5px 5px rgba(0, 0, 0, .125);
+    }
+
+}
+
+.select-item--container.active {
+    background: #e8e8e8;
+
+    div {
+        color: #f76205ff;
+        background: none;
+
+        svg {
+            fill: #f76205ff;
+        }
+    }
+
+}
+
+.select-item--svg-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e8e8;
+    border-radius: 5px 0 0 5px;
+    border-right: 1px solid #bbbaba;
+    transition: all 0.3s;
+
+    svg {
+        fill: #707070;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 100%;
+        border-radius: 5px 0 0 5px;
+    }
+}
+
+.select-item--name-container {
+    position: relative;
+    border-radius: 0 5px 5px 0;
+    color: #707070;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 0 10px;
+    width: 100%;
+    font-weight: 600;
+}
+
+
+.form-item--container {
+    cursor: pointer;
+    display: flex;
+    height: 42px;
+    width: 100%;
+    border: 1px solid #707070;
+    border-radius: 5px;
+    transition: all 0.3s;
+
+    &:hover {
+        .form-item--svg-container {
+            background: #e8e8e8;
+
+            svg {
+                fill: #f76205ff;
+            }
+        }
+    }
+
+
+}
+
+.form-item--container.active {
+    background: #e8e8e8;
+
+    .form-item--svg-container {
+        svg {
+            fill: #f76205ff;
+        }
+    }
+
+    div {
+        background: none;
+
+    }
+
+}
+
+.form-item--svg-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    background-color: #e8e8e8;
+    border-radius: 5px 0 0 5px;
+    border-right: 1px solid #bbbaba;
+    transition: all 0.3s;
+
+    svg {
+        fill: #707070;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 100%;
+        border-radius: 5px 0 0 5px;
+    }
+}
+
+.form-item--name-container {
+    position: relative;
+    border-radius: 0 5px 5px 0;
+    color: #707070;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 10px;
+
+    width: 100%;
+    font-weight: 600;
+
+    div {
+        height: 100%;
+        padding: 5px;
+        font-size: 16px;
+        border-left: 1px solid #e1e1e1;
+        transition: all 0.5s;
+        border-radius: 0 5px 5px 0;
+
+        svg {
+            fill: #707070;
+        }
+
+        &:hover {
+            background: #e8e8e8;
+
+            svg {
+                fill: #f76205ff;
+            }
+
+        }
+
+        &:active {
+            box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.125);
+        }
+    }
+}
+
+
+.form-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    padding: 20px;
+}
+
+.new-button-auth2 {
+    display: flex;
+    font-size: 18px;
+    height: 42px;
+    width: 75px;
+    color: #f76205ff;
+
+    border: 2px solid #f76205ff;
+    padding: 3px;
+    text-decoration: none;
+    font-weight: revert;
+
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 ;
+    position: relative;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+
+.new-button-auth2:hover {
+    background-color: #f76205ff;
+    border: none;
+    color: white;
+    text-decoration: none;
+}
+
+.new-button-auth2:active {
+    color: #fff;
+    background-color: #f76205ff;
+    border: none;
+    box-shadow: inset 0 3px 5px rgb(162, 72, 2);
+
+
+}
+
+
+.new-button-auth2.active {
+    color: #fff;
+    background-color: #f76205ff;
+
+}
+
+
+.forgot-password {
+    //order: 999;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-self: start;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    padding: 5px 10px 5px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.5s;
+
+    a {
+     height:25px;
+        color: #707070;
+    }
+
+    &:hover {
+        a {
+            color: #f76205ff;
+        }
+
+        background: #e8e8e8;
+    }
+
+    &:active {
+        background: #e8e8e8;
+        box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.125);
+
+    }
+
+}
+
+
+input[type="text"] {
+    all: unset;
+
+    background: none !important;
+    font-size: 14px;
+
+    border: none;
+
+    &:active {
+        border-radius: 0;
+    }
+
+}
+
+input[type="password"] {
+    all: unset;
+    font-size: 14px;
+}
+
+input[type='submit'] {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.error-handler {
+    color: #ff0000 !important;
+    border-color: #ff0000 !important;
+
+    .form-item--svg-container svg {
+        fill: #ff0000 !important; // Задайте желаемый цвет
+
+    }
+
+}
+
+.success-handler{
+    color: #f76205ff !important;
+    border-color: #f76205ff !important;
+
+    .form-item--svg-container svg {
+        fill: #f76205ff !important; // Задайте желаемый цвет
+
+    }
+
+}
+
+.checkbox-container.forgot-password {
+
+
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+
+    &:hover {
+        div {
+            color: #F76205;
+        }
+    }
+
+}
+
+.checkbox-container:hover{
+    .checkbox--svg-container {
+        border: 1px solid #F76205;
+
+    }
+}
+.checkbox-container:active{
+    .checkbox--svg-container {
+        border: 1px solid #F76205;
+
+    }
+}
+
+.checkbox--svg-container {
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    width: 18px;
+    border: 1px solid #707070;
+    padding: 1px;
+    transition: all 0.1s;
+
+    svg {
+        height: 24px;
+        width: 24px;
+        fill: #F76205;
+        opacity: 0;
+    }
+}
+
+.checkbox--svg-container:hover {
+    background: #e8e8e8;
+
+
+}
+
+.checkbox--svg-container.active {
+    border: 1px solid #F76205;
+
+    svg {
+        opacity: 1;
+    }
+}
+.checkbox--text-container{
+    height: 25px;
+    color: #707070;
+}
+.checkbox--text-container.active {
+    color: #F76205;
+}
+
+.checkbox--text-container {
+    font-weight: 600;
+    margin-left: 4px;
+    font-size: 16px;
+    color: #707070;
+
+}

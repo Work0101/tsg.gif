@@ -8,16 +8,14 @@ const LinkComponenе = ({link, text, menuIsOpen, handelNavLinkButtonClick}) => {
 
     return (
         <>
-            <div  data-bs-toggle={menuIsOpen ? "collapse" : ""}
-                     data-bs-target=".header-nav-main nav" onClick={
-                () => {
-                    navigate(link)
-                    if (menuIsOpen) handelNavLinkButtonClick()
-                }} style={{textDecoration: 'none', cursor:"pointer"}}>
 
-                <div className='new-button-auth ' style={{background:link===path&&"#f76205ff", color: link===path&&"#ffffff"}}>
+                <div className='new-button-auth ' data-bs-toggle={menuIsOpen ? "collapse" : ""}
+                     data-bs-target=".header-nav-main nav" onClick={
+                    () => {
+                        navigate(link)
+                        if (menuIsOpen) handelNavLinkButtonClick()
+                    }} style={{background:link===path&&"#f76205ff", color: link===path&&"#ffffff", textDecoration: 'none', cursor:"pointer"}}>
                     {text}
-                </div>
             </div></>
     )
 }

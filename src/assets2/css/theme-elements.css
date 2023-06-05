@@ -2245,7 +2245,7 @@ html body.body .btn:active {
 
 .btn-default:hover, .btn-default:active, .btn-default:focus {
 	color: #333;
-	background-color: #e6e6e6;
+	background-color: #e8e8e8;
 	border-color: #adadad;
 }
 
@@ -14232,7 +14232,7 @@ html.boxed .nav-secondary.sticky-active {
 /* Scroll to Top */
 html .scroll-to-top {
 	transition: opacity 0.3s;
-	background: #afaeac;
+	background: #e8e8e8;
 	border-radius: 4px;
 	bottom: 35px;
 	color: #FFF;
@@ -19971,7 +19971,7 @@ section.section-custom-map section.section {
 
 .portfolio-info ul li {
 	display: inline-block;
-	border-right: 1px solid #E6E6E6;
+	border-right: 1px solid #e8e8e8;
 	color: #B1B1B1;
 	padding-right: 8px;
 	margin-right: 8px;

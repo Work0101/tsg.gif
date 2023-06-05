@@ -2,6 +2,9 @@ import "./elements/style.css"
 
 import {AiFillInstagram, AiOutlineTwitter} from "react-icons/ai";
 import {FaTelegramPlane} from "react-icons/fa";
+import {ImYoutube} from "react-icons/im";
+
+
 import {useSelector} from "react-redux"
 import "../Header/elements/style.css"
 
@@ -40,6 +43,11 @@ const Footer = () => {
             url: "http://www.telegram.com/",
             name: "telegram__icon",
             title: "Telegram"
+        },{
+            icon: <ImYoutube size={"28px"}/>,
+            url: "http://www.youtube.com",
+            name: "youtube__icon",
+            title: "Youtube"
         },]
 
     const data = [{title: "Home", data: [{name:"Home", url:"/"},{name:"Marketing", url:"/marketing"},{name:"Quotes", url:"/quotes"},{name:"FAQ", url:"/faq"}]},
@@ -49,15 +57,15 @@ const Footer = () => {
             title: "Legal", data: [{name:"Contact Us", url:"/legal/contactus"},{name:"GDPR", url:"/legal/gdpr"}]
         },]
     return (<footer id="footer" className="position-relative bg-quaternary "
-                    style={{borderTop: "1px solid #C2C0C0FF", userSelect:"none",}}>
+                    style={{borderTop: "1px solid #C2C0C0FF", position:"absolute", bottom:"-61px", width:"100%"}}>
             <div className="   container " style={{paddingTop:"17px", paddingBottom:"10px"}}>
 
-                <div className={"grid grid-template"}>
-                    {data.map(item => <Column data={item} />)}
-                    <div className=" d-flex  flex-column align-items-center">
-                        <h3 className="text-4-5 text-color-dark" style={{marginBottom:"6px"}}>Follow US</h3>
+                <div className={"grid grid-template"} style={{}}>
+                    {data.map((item, i )=> <Column data={item} index={i}/>)}
+                    <div className=" d-flex  flex-column align-items-center" style={{ }}>
+                        <h3 className=" text-color-dark" style={{marginBottom:"6px", userSelect:"none", fontSize:"18px"}}>Follow US</h3>
                         <div className="list list-unstyled  font-weight-medium  "
-                             style={{display: "grid", gridTemplateColumns: "repeat(2, 42px)"}}>
+                             style={{display: "grid", gridTemplateColumns: "repeat(2, 42px)" }}>
 
                             {dataForSocialIcons.map(items => <SocialIcons {...items}/>)}
                         </div>
@@ -71,9 +79,9 @@ const Footer = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                borderTop: "1px solid #C2C0C0FF"
+                borderTop: "1px solid #C2C0C0FF",
             }}>
-                <p className="text-left text-1 mb-0" style={{color:"#707070"}}>TSG.GIFT © 2023. All Rights Reserved.</p>
+                <div className="text-left text-1 mb-0" style={{color:"#707070", fontWeight:"600"}}>TSG.GIFT © 2023. All Rights Reserved.</div>
             </div>
 
         </footer>

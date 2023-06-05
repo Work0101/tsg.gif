@@ -1,18 +1,21 @@
 ._nav-containers{
-    margin: 20px auto 0 auto;
+    margin: 8px auto 0 auto;
     width: 100% !important;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    user-select: none;
 }
+
 
 ._nav-item > a {
     position: relative;
 }
 
 ._nav-item > a {
-    margin: 0 10px;
+    user-select: none;
+    margin: 0 7px;
     padding: 8px 0px;
     width: 100px;
     display: flex;
@@ -44,7 +47,7 @@
 
 ._nav-item > a:hover {
     color: #f76205ff !important;
-    background-color: #e5e3e3;
+    background-color: #e8e8e8;
 }
 
 ._nav-item > a.active {

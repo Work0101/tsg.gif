@@ -5,6 +5,9 @@ import {useSelector} from "react-redux";
 
 const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonClick, inMenu}) => {
     const lang = useSelector((state) => state.language.LanguageCode)
+    const handelClock = () =>{
+        window.scrollTo({top:0} )
+    }
 
     const location = useLocation()
     const [isSelect, setSelect] = useState(false)
@@ -33,7 +36,10 @@ const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonCl
     return (
         <li
 
-            onClick={() => handelNavLinkButtonClick()}
+            onClick={() => {
+                handelNavLinkButtonClick()
+                handelClock()
+            }}
             data-bs-toggle={matches ? "collapse" : ""}
             data-bs-target={matches ? ".header-nav-main nav" : ""}
             style={{
@@ -59,7 +65,7 @@ const NavLinkCustom = ({link, text, mouseOnBlock, matches, handelNavLinkButtonCl
                     border: inMenu && "none"
                 }}
                 onMouseLeave={hendelMouseOut}
-                to={`/${lang}${link}`}
+                to={`/${lang}${link==="/legal"?"/legal/disclaimer":`${link}`}`}
                 className={isUnderline}
                 onClick={() => handelNavLinkButtonClick()}
             >
