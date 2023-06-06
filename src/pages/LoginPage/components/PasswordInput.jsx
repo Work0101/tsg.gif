@@ -5,35 +5,56 @@ import {useController} from "react-hook-form";
 import {AiFillEye, AiFillEyeInvisible} from 'react-icons/ai'
 
 
-const PasswordInput = ({ trigger, type, errors, control, isValid}) => {
-    const name= type
+const PasswordInput = ({trigger, type, selectType, errors, control, isValid}) => {
+    const name = type
     const {
         field,
         fieldState,
-        fieldState: {invalid, isTouched}
+        fieldState: {invalid, isTouched, isDirty},
+        formState: {touchedFields}
+
     } = useController({
         name,
         control,
         rules: {
             required: true,
-            maxLength: 40, minLength: 8, pattern:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/
+            minLength: 8,
+            maxLength: 40,
+            pattern: /[a-zA-Z0-9_]/,
+            //
+            //
+
+            validate: {
+                validPassword: (value) => /^(?=.*[A-Z])(?=.*\d).+$/.test(value),
+                noEnglish: (value) => /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+$/.test(value),
+                removeWhiteSpaces: (value) => value.trim() === value,
+            }
         }
     });
+
     const [isVisible, setIsVisible] = React.useState(false)
     const [isError, setError] = React.useState("")
+
     React.useEffect(() => {
-        field.value === ''&&setError("")
+            !isDirty && setError("")
+            trigger(type)
+        },
+        [selectType])
+    React.useEffect(() => {
             trigger(type)
         },
         [field.value])
-    React.useEffect(()=> {
-if (isValid)    setError("success-handler")
-            else if(isTouched){
-                if(invalid) setError("error-handler")
-                else if (!invalid)setError("success-handler")
+
+
+    React.useEffect(() => {
+        !isValid&&!isTouched&&setError("")
+            if (isValid) setError("success-handler")
+            else if (isTouched) {
+                if (invalid) setError("error-handler")
+                else if (!invalid) setError("success-handler")
             }
         },
-        [fieldState, isValid])
+        [field.value, isValid, isTouched])
 
     return (
         <div style={{position: "relative", width: "100%", marginBottom: "20px"}}>
@@ -49,7 +70,7 @@ if (isValid)    setError("success-handler")
                            onBlur={field.onBlur} // notify when input is touched/blur
                            value={field.value} // input value
                            name={field.name} // send down the input name
-                           onFocus={()=>trigger("login")}
+                           onFocus={() => trigger(Object.keys(touchedFields))}
 
                            inputRef={field.ref} // send input ref, so we can focus on input when error appear
                            autoComplete="off"
@@ -64,9 +85,15 @@ if (isValid)    setError("success-handler")
                 </div>
             </div>
             {isTouched && errors[type] && (errors[type].type === 'maxLength' || errors[type].type === 'minLength' || errors[type].type === 'required') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>Password must be 8 - 40 characters</div>}
-            {isTouched && errors[type] && (errors[type].type === 'maxLength' || errors[type].type === 'pattern') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>Please enter a valid password</div>}
+                <div style={{marginTop: "4px", height: "25px", marginLeft: "53px", width: "100%"}}>Password must be 8 -
+                    40 characters</div>}
+            {isTouched && errors[type] && (errors[type].type === 'maxLength' || errors[type].type === 'validPassword' || errors[type].type === 'removeWhiteSpaces') &&
+                <div style={{marginTop: "4px", height: "25px", marginLeft: "53px", width: "100%"}}>Please enter a valid
+                    password</div>}
+            {isTouched && errors[type] && (errors[type].type === 'noEnglish'|| errors[type].type === 'pattern')&&
+                <div style={{marginTop: "4px", height: "25px", marginLeft: "53px", width: "100%"}}>Please enter only
+                    English</div>}
+
         </div>
 
 

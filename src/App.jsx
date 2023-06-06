@@ -87,7 +87,9 @@ const lang = useSelector(state =>state.language.LanguageCode)
                         <Route path={`/:code/signup/`} element={<SignUpPage/>}/>
                         <Route path={`/:code/signin/`} element={<LoginPage/>}/>
                         <Route path={`/:code/faq/`} element={<FAQPage/>}/>
-                        <Route path={`/:code/reset-password/`} element={<ForgotPassword/>}/>
+                        <Route path={`/:code/reset-password/`} element={<ForgotPassword/>}>
+
+                        </Route>
                         <Route path="*" element={ <Navigate to={"/en"}/>}/>
 
 

@@ -40,6 +40,7 @@ const ForgotPassword = ()=>{
                  }}>
                 <h3 className={"text-color-dark"} style={{marginBottom: "30px",marginTop:"20px", fontSize: "22px"}}>Reset Your Password</h3>
                 <div className={'d-flex align-items-center flex-column'} style={{width: "90%"}}>
+
                     <form onSubmit={handleSubmit(() => console.log('submit'))} className={"form-container"}>
                         <div className={"new-container"} style={{gap: "5px", marginBottom: "20px"}}>
                             <SelectTypeOfAuthorizations
@@ -49,24 +50,10 @@ const ForgotPassword = ()=>{
                         </div>
                         <FormInput  isValid={isValid} selectType={selectType} watch={watch} setValue={setValue}
                                    register={register} errors={errors} trigger={trigger} touchedFields={touchedFields} control={control}    resetField={resetField}/>
-                        {/*<PasswordInput register={register}isValid={isValid} errors={errors} type={"password"} trigger={trigger} touchedFields={touchedFields} watch={watch} control={control}/>*/}
-                        <div style={{display:"flex", width:"100%", justifyContent:"space-between", alignItems:"center", height:"30px", marginBottom:"20px"}}>
 
-                            {/*<div style={{position:"relative"}}>*/}
-                            {/*    <div className={`checkbox-container ${isChecked?'active':""} forgot-password`} onClick={handleCheckboxChange}>*/}
-                            {/*        <div className={`checkbox--svg-container ${isChecked?'active':""}`} >*/}
-                            {/*            <ImCheckmark />*/}
-                            {/*        </div>*/}
-                            {/*        <div className={ `checkbox--text-container ${isChecked?'active':""}`}>*/}
-                            {/*            Sign In (31 days)*/}
-
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
-                        </div>
-                        <input type={'submit'} className={`new-button-auth2  ${isVal}`}
+                        <input type={'submit'} className={`new-button-auth2  ${isValid&&'active'}`}
                                style={{textDecoration: 'none', cursor: "pointer", userSelector: "none", width: "100%"}}
-                               value={'Sign In'}/>
+                               value={'Next'}/>
 
                     </form>
 

@@ -1,10 +1,4 @@
 import {createSlice} from "@reduxjs/toolkit";
-//
-// export interface LanguageObj {
-//     LanguageCode: string,
-//     LanguageName: string,
-//     countryFlag: string
-// }
 
 const initialState = {
     LanguageCode: localStorage.code||"en",

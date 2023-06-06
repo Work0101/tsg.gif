@@ -2,23 +2,21 @@ import React from "react";
 
 import {useController} from "react-hook-form";
 
-const FormInput = ({selectType, params, resetField, isValid, reset,  errors, touchedFields, control, trigger}) => {
+const FormInput = ({selectType, watch, resetField, isValid, errors, touchedFields, control, trigger}) => {
     const name = "login"
     const [isError, setError] = React.useState("")
 
-    // Regular expression to match any character except English letters, digits, and specified special characters
     const regex1 = /^[a-zA-Z0-9 !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]*$/;
-
-    // Regular expression to match email address
     const regex2 = /^[\p{L}\p{N}._%+-]+@[\p{L}\p{N}._%+-]+\.[\p{L}\p{N}._%+-]{2,}$/u;
-
     const validateString = {
         hasInvalidCharacters: (value) => regex1.test(value) ? true : false,
-        isValidEmail: (value) => regex2.test(value) ? true : false
+        isValidEmail: (value) => regex2.test(value) ? true : false,
+        removeWhiteSpaces: (value) => value.trim() === value
     };
 
     const {
         field,
+        fieldState,
         fieldState: {invalid, isTouched},
     } = useController({
         name,
@@ -26,13 +24,15 @@ const FormInput = ({selectType, params, resetField, isValid, reset,  errors, tou
         rules: selectType.name === "Username" ? {
             maxLength: 25,
             minLength: 4,
-            pattern: /[A-Za-z0-9_]/,
-            required: true
+            pattern: /[a-zA-Z0-9_]/,
+            required: true,
+            validate: {
+                hasInvalidCharacters:(value) => /^[a-zA-Z0-9_]+$/.test(value) ? true : false,
+                removeWhiteSpaces: (value) => value.trim() === value }
         } : {
             pattern: /^[a-zA-Z0-9 !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]*$/, validate: validateString, required: true,
         }
     });
-
 
     React.useEffect(() => {
             trigger("login")
@@ -71,7 +71,11 @@ const FormInput = ({selectType, params, resetField, isValid, reset,  errors, tou
                            maxLength={selectType.name === "Username" ? 25 : 70}
                            onFocus={() => trigger("login")}
 
-                           {...field}
+                           onChange={field.onChange} // send value to hook form
+                           onBlur={field.onBlur} // notify when input is touched/blur
+                           value={field.value} // input value
+                           name={field.name} // send down the input name
+                           inputRef={field.ref}
                            style={{
                                width: "100%",
                                height: "100%",
@@ -82,20 +86,23 @@ const FormInput = ({selectType, params, resetField, isValid, reset,  errors, tou
                 </div>
             </div>
             {selectType.name === 'Email' && "login" in touchedFields &&
-                errors["login"] && (errors["login"].type === 'hasInvalidCharacters'|| errors["login"].type === 'pattern') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>Please enter only English</div>}
+                errors["login"] && (errors["login"].type === 'hasInvalidCharacters' || errors["login"].type === 'pattern') &&
+                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div>}
+            {selectType.name&&"login" in touchedFields &&
+                errors["login"] && (errors["login"].type === 'removeWhiteSpaces'||errors["login"].type === 'hasInvalidCharacters' ) &&
+                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter a valid { (selectType.name).toLowerCase()}</div>}
 
             {selectType.name === 'Email' && "login" in touchedFields &&
                 errors["login"] && (errors["login"].type === 'required' || errors["login"].type === 'maxLength' || errors["login"].type === 'minLength' ||errors["login"].type === 'isValidEmail') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>Please, enter a valid email
+                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please, enter a valid email
                     address</div>}
 
 
             {selectType.name === 'Username' && "login" in touchedFields && errors["login"] && (errors["login"].type === 'minLength' || errors["login"].type === 'required') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>{selectType.name} must be 4 - 25
+                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>{selectType.name} must be 4 - 25
                     characters</div>}
             {selectType.name === 'Username' && "login" in touchedFields && errors["login"] && (errors["login"].type === 'pattern') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>Please enter only English</div>}
+                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div>}
 
 
         </div>

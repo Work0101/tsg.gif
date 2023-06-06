@@ -28,7 +28,7 @@ const SelectTypeOfAuthorizations = ({selectType, setType}) => {
 
 
     const data = [
-        {icon: <BsTelephoneFill size={"20px"}/>, name: "Phone", type: "phone"},
+        // {icon: <BsTelephoneFill size={"20px"}/>, name: "Phone", type: "phone"},
         {icon: <MdEmail size={"26px"}/>, name: "Email", type: "email"}]
     return (
         <>

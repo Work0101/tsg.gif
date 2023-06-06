@@ -2,7 +2,7 @@ import React from "react";
 
 import {useController} from "react-hook-form";
 
-const FormInput = ({selectType, params, resetField, isValid, reset,  errors, touchedFields, control, trigger}) => {
+const FormInput = ({selectType, resetField, isValid,  errors, touchedFields, control, trigger}) => {
     const name = "login"
     const [isError, setError] = React.useState("")
 
@@ -58,7 +58,7 @@ const FormInput = ({selectType, params, resetField, isValid, reset,  errors, tou
 
     return (
 
-        <div style={{position: "relative", width: "100%", marginBottom: "20px"}}>
+        <div style={{position: "relative", width: "100%", marginBottom: "50px"}}>
             <div
                 className={`form-item--container ${isError} `}>
                 <div className={"form-item--svg-container"}>
@@ -83,19 +83,17 @@ const FormInput = ({selectType, params, resetField, isValid, reset,  errors, tou
             </div>
             {selectType.name === 'Email' && "login" in touchedFields &&
                 errors["login"] && (errors["login"].type === 'hasInvalidCharacters'|| errors["login"].type === 'pattern') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>Please enter only English</div>}
+                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div>}
 
             {selectType.name === 'Email' && "login" in touchedFields &&
                 errors["login"] && (errors["login"].type === 'required' || errors["login"].type === 'maxLength' || errors["login"].type === 'minLength' ||errors["login"].type === 'isValidEmail') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>Please, enter a valid email
+                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please, enter a valid email
                     address</div>}
-
-
             {selectType.name === 'Username' && "login" in touchedFields && errors["login"] && (errors["login"].type === 'minLength' || errors["login"].type === 'required') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>{selectType.name} must be 4 - 25
+                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>{selectType.name} must be 4 - 25
                     characters</div>}
             {selectType.name === 'Username' && "login" in touchedFields && errors["login"] && (errors["login"].type === 'pattern') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "52px", width: "100%"}}>Please enter only English</div>}
+                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div>}
 
 
         </div>
