@@ -1,6 +1,7 @@
 import React from "react";
 
 import {useController} from "react-hook-form";
+import {BsExclamationCircle} from "react-icons/bs";
 
 const FormInput = ({selectType, watch, resetField, isValid, errors, touchedFields, control, trigger}) => {
     const name = "login"
@@ -87,22 +88,28 @@ const FormInput = ({selectType, watch, resetField, isValid, errors, touchedField
             </div>
             {selectType.name === 'Email' && "login" in touchedFields &&
                 errors["login"] && (errors["login"].type === 'hasInvalidCharacters' || errors["login"].type === 'pattern') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div>}
+                <div style={{display: "flex", alignItems: "center"}}  className={'error-container'} >
+                    <BsExclamationCircle size={25} color={"red"}/><div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div></div>}
             {selectType.name&&"login" in touchedFields &&
                 errors["login"] && (errors["login"].type === 'removeWhiteSpaces'||errors["login"].type === 'hasInvalidCharacters' ) &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter a valid { (selectType.name).toLowerCase()}</div>}
+                <div style={{display: "flex", alignItems: "center"}}  className={'error-container'} >
+                    <BsExclamationCircle size={25} color={"red"}/><div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter a valid { (selectType.name).toLowerCase()}</div></div>}
 
             {selectType.name === 'Email' && "login" in touchedFields &&
                 errors["login"] && (errors["login"].type === 'required' || errors["login"].type === 'maxLength' || errors["login"].type === 'minLength' ||errors["login"].type === 'isValidEmail') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please, enter a valid email
-                    address</div>}
+                <div style={{display: "flex", alignItems: "center"} }  className={'error-container'} >
+                    <BsExclamationCircle size={25} color={"red"}/><div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please, enter a valid email
+                    address</div></div>}
 
 
             {selectType.name === 'Username' && "login" in touchedFields && errors["login"] && (errors["login"].type === 'minLength' || errors["login"].type === 'required') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>{selectType.name} must be 4 - 25
-                    characters</div>}
+                <div  className={'error-container'} style={{display: "flex", alignItems: "center"}}>
+                    <BsExclamationCircle size={25} color={"red"}/>
+                    <div style={{marginTop: "4px", height:"25px", marginLeft: "px", width: "100%"}}>{selectType.name} must be 4 - 25
+                    characters</div></div>}
             {selectType.name === 'Username' && "login" in touchedFields && errors["login"] && (errors["login"].type === 'pattern') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div>}
+                <div  className={'error-container'} style={{display: "flex", alignItems: "center"}}>
+                    <BsExclamationCircle size={25} color={"red"}/><div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div></div>}
 
 
         </div>

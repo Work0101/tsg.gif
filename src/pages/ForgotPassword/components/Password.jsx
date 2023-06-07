@@ -28,6 +28,10 @@ const PasswordInput = ({trigger, type="password", errors, control, isValid}) => 
                 validPassword: (value) => /^(?=.*[A-Z])(?=.*\d).+$/.test(value),
                 noEnglish: (value) => /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+$/.test(value),
                 removeWhiteSpaces: (value) => value.trim() === value,
+               firstEquelSecond:(value) =>{
+                   if (type !==  "password2")
+return true
+                       }
             }
         }
     });
@@ -47,7 +51,7 @@ const PasswordInput = ({trigger, type="password", errors, control, isValid}) => 
 
 
     React.useEffect(() => {
-        !isValid&&!isTouched&&setError("")
+            !isValid&&!isTouched&&setError("")
             if (isValid) setError("success-handler")
             else if (isTouched) {
                 if (invalid) setError("error-handler")
@@ -57,14 +61,19 @@ const PasswordInput = ({trigger, type="password", errors, control, isValid}) => 
         [field.value, isValid, isTouched, invalid])
 
     return (
+        <>
+        <div style={{fontWeight:"600", marginBottom:"5px", marginRight:"auto"}}>
+            {type==="password1"?"New Password":"Confirm New Password"}
+        </div>
         <div style={{position: "relative", width: "100%", marginBottom: "20px"}}>
-            <div className={`form-item--container ${isError} `}>
+            <div className={`form-item--container ${isError} `} style={{wigth:"100%"}}>
                 <div className={"form-item--svg-container"}>
                     <div>
                         <RiLockPasswordFill size={"24px"}/>
                     </div>
                 </div>
                 <div className={'form-item--name-container'}>
+
                     <input type={isVisible ? "text" : "password"} maxLength={40}
                            onChange={field.onChange} // send value to hook form
                            onBlur={field.onBlur} // notify when input is touched/blur
@@ -75,7 +84,7 @@ const PasswordInput = ({trigger, type="password", errors, control, isValid}) => 
                            inputRef={field.ref} // send input ref, so we can focus on input when error appear
                            autoComplete="off"
                            style={{width: "100%", height: "100%", borderRadius: "0 5px 5px 0"}}
-                           placeholder={"Password"}/>
+                           placeholder={type==="password1"?"New Password":"Confirm New Password"}/>
 
                     <div onClick={() => setIsVisible(!isVisible)}>
                         {isVisible ? <AiFillEye size={'24px'}/> : <AiFillEyeInvisible size={"24px"}/>}
@@ -99,7 +108,7 @@ const PasswordInput = ({trigger, type="password", errors, control, isValid}) => 
 
         </div>
 
-
+</>
     )
 }
 export default PasswordInput

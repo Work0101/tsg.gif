@@ -1,5 +1,5 @@
 import {ImUser} from 'react-icons/im'
-import {BsTelephoneFill} from 'react-icons/bs'
+import {BsFillEnvelopeFill, BsTelephoneFill} from 'react-icons/bs'
 import {MdEmail} from 'react-icons/md'
 import React from "react";
 
@@ -31,7 +31,7 @@ const SelectTypeOfAuthorizations = ({selectType, setType}) => {
 
     const data = [{icon: <ImUser size={"24px"}/>, name: "Username", type:"login"},
         // {icon: <BsTelephoneFill size={"20px"}/>, name: "Phone"},
-        {icon: <MdEmail size={"26px"}/>, name: "Email", type: "login"}]
+        {icon:  <BsFillEnvelopeFill size={"23px"}/>, name: "Email", type: "login"}]
     return (
         <>
             {data.map(item => <SelectItem data={item} selectType={selectType}

@@ -1,0 +1,25 @@
+input[type='text']
+.code-input:invalid {
+  .error-code-container:before {
+    content: "Enten valid code";
+    top: 0;
+  }
+}
+
+input::-moz-selection {
+  color: #707070 !important;
+  background-color: #fff !important;
+
+}
+
+input::selection {
+  color: #707070 !important;
+  background-color: #fff !important;
+
+}
+
+input[type='text']{
+  cursor: pointer;
+}
+
+

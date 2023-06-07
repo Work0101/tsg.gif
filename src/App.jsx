@@ -64,6 +64,14 @@ import LoginPage from "./pages/LoginPage";
 import FAQPage from "./pages/FAQPage";
 import Disclaimer from './pages/LegalPage/elements/Disclaimer'
 import ForgotPassword from './pages/ForgotPassword'
+import FirstPage from "./pages/ForgotPassword/subPages/FirstStage";
+import SecondStage from "./pages/ForgotPassword/subPages/SecondStage";
+import ThirdStage from "./pages/ForgotPassword/subPages/ThirdStage";
+import Success from "./pages/ForgotPassword/subPages/Success";
+import Error from "./pages/ForgotPassword/subPages/Error";
+
+
+
 
 const App =() =>{
 const lang = useSelector(state =>state.language.LanguageCode)
@@ -88,8 +96,15 @@ const lang = useSelector(state =>state.language.LanguageCode)
                         <Route path={`/:code/signin/`} element={<LoginPage/>}/>
                         <Route path={`/:code/faq/`} element={<FAQPage/>}/>
                         <Route path={`/:code/reset-password/`} element={<ForgotPassword/>}>
-
+                            <Route  index element={<FirstPage/>}/>
+                            <Route  path={`/:code/reset-password/verify`} element={<SecondStage/>}/>
+                            <Route  path={`/:code/reset-password/confirm`} element={<ThirdStage/>}/>
                         </Route>
+                        <Route  path={`/:code/reset-password/success`} element={<Success/>}/>
+                        <Route  path={`/:code/reset-password/failed`} element={<Error/>}/>
+
+
+
                         <Route path="*" element={ <Navigate to={"/en"}/>}/>
 
 

@@ -1,5 +1,5 @@
 import {ImUser} from 'react-icons/im'
-import {BsTelephoneFill} from 'react-icons/bs'
+import {BsTelephoneFill, BsFillEnvelopeFill} from 'react-icons/bs'
 import {MdEmail} from 'react-icons/md'
 import React from "react";
 
@@ -12,7 +12,7 @@ const SelectItem = ({data, setType, selectType}) => {
     }
     return (
         <div className={`select-item--container ${selectType.name===data.name?"active":""}`} style={{maxWidth:320+'px'}} onClick={handlerClick}>
-            <div className={'select-item--svg-container'}>
+            <div className={'select-item--svg-container'} >
                 <div>
                     {data.icon}
 
@@ -29,7 +29,7 @@ const SelectTypeOfAuthorizations = ({selectType, setType}) => {
 
     const data = [
         // {icon: <BsTelephoneFill size={"20px"}/>, name: "Phone", type: "phone"},
-        {icon: <MdEmail size={"26px"}/>, name: "Email", type: "email"}]
+        {icon: <BsFillEnvelopeFill size={"23px"}/>, name: "Email", type: "email"}]
     return (
         <>
             {data.map(item => <SelectItem data={item} selectType={selectType}

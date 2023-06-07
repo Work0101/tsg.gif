@@ -38,7 +38,6 @@
 }
 
 .select-item--container.active {
-    background: #e8e8e8;
 
     div {
         color: #f76205ff;
@@ -53,11 +52,11 @@
 
 .select-item--svg-container {
     position: relative;
+    width: 42px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #e8e8e8;
     border-radius: 5px 0 0 5px;
     border-right: 1px solid #bbbaba;
     transition: all 0.3s;
@@ -100,7 +99,7 @@
 
     &:hover {
         .form-item--svg-container {
-            background: #e8e8e8;
+            background: #e8e8e8!important;
 
             svg {
                 fill: #f76205ff;
@@ -112,7 +111,6 @@
 }
 
 .form-item--container.active {
-    background: #e8e8e8;
 
     .form-item--svg-container {
         svg {
@@ -134,7 +132,6 @@
     align-items: center;
     justify-content: center;
     width: 42px;
-    background-color: #e8e8e8;
     border-radius: 5px 0 0 5px;
     border-right: 1px solid #bbbaba;
     transition: all 0.3s;
@@ -404,4 +401,19 @@ input[type='submit'] {
     font-size: 16px;
     color: #707070;
 
+}
+
+.error-container{
+    margin-top:5px ;
+    svg{
+        height: 21px!important;
+        width: 21px!important;
+        margin: 0  13px 0 13px;
+    }
+    div{
+        display: flex;
+        color:#ff0000;
+        align-items: center;
+        margin-top:0!important;
+        margin-left:9px!important;}
 }

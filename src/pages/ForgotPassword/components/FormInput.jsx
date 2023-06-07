@@ -1,20 +1,21 @@
 import React from "react";
 
 import {useController} from "react-hook-form";
+import {BsExclamationCircle} from "react-icons/bs";
 
-const FormInput = ({selectType, resetField, isValid,  errors, touchedFields, control, trigger}) => {
+const FormInput = ({selectType, resetField, isValid, errors, control, trigger}) => {
     const name = "login"
     const [isError, setError] = React.useState("")
 
     // Regular expression to match any character except English letters, digits, and specified special characters
-    const regex1 = /^[a-zA-Z0-9 !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]*$/;
+    const regex1 = /^[a-zA-Z0-9 !@#$^&*()_+\-=[\]{};':"\\|,.<>/?]*$/;
 
     // Regular expression to match email address
-    const regex2 = /^[\p{L}\p{N}._%+-]+@[\p{L}\p{N}._%+-]+\.[\p{L}\p{N}._%+-]{2,}$/u;
+    const regex2 = /^[\p{L}\p{N}._%+-]+@[\p{L}\p{N}._+-]+\.[\p{L}\p{N}._%+-]{2,}$/u;
 
     const validateString = {
-        hasInvalidCharacters: (value) => regex1.test(value) ? true : false,
-        isValidEmail: (value) => regex2.test(value) ? true : false
+        hasInvalidCharacters: (value) => regex1.test(value),
+        isValidEmail: (value) => regex2.test(value)
     };
 
     const {
@@ -37,13 +38,12 @@ const FormInput = ({selectType, resetField, isValid,  errors, touchedFields, con
     React.useEffect(() => {
             trigger("login")
         },
-        [field.value])
+        [field.value, trigger])
     React.useEffect(() => {
             setError("")
             resetField("login")
-            resetField("password")
         },
-        [selectType])
+        [selectType, resetField])
 
 
     React.useEffect(() => {
@@ -61,7 +61,7 @@ const FormInput = ({selectType, resetField, isValid,  errors, touchedFields, con
         <div style={{position: "relative", width: "100%", marginBottom: "50px"}}>
             <div
                 className={`form-item--container ${isError} `}>
-                <div className={"form-item--svg-container"}>
+                <div className={"form-item--svg-container"} style={{background:"#fff"}}>
                     <div>
                         {selectType.icon}
                     </div>
@@ -81,21 +81,25 @@ const FormInput = ({selectType, resetField, isValid,  errors, touchedFields, con
 
                 </div>
             </div>
-            {selectType.name === 'Email' && "login" in touchedFields &&
-                errors["login"] && (errors["login"].type === 'hasInvalidCharacters'|| errors["login"].type === 'pattern') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div>}
+            {isTouched &&
+                errors["login"] && (errors["login"].type === 'hasInvalidCharacters' || errors["login"].type === 'pattern') &&
+                <div style={{display: "flex", alignItems: "center"}} className={'error-container'} >
+                    <BsExclamationCircle size={25} color={"red"}/>
+                    <div style={{marginTop: "4px", height: "25px", marginLeft: "53px", width: "100%"}}>Please enter only
+                        English
+                    </div>
+                </div>}
 
-            {selectType.name === 'Email' && "login" in touchedFields &&
-                errors["login"] && (errors["login"].type === 'required' || errors["login"].type === 'maxLength' || errors["login"].type === 'minLength' ||errors["login"].type === 'isValidEmail') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please, enter a valid email
-                    address</div>}
-            {selectType.name === 'Username' && "login" in touchedFields && errors["login"] && (errors["login"].type === 'minLength' || errors["login"].type === 'required') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>{selectType.name} must be 4 - 25
-                    characters</div>}
-            {selectType.name === 'Username' && "login" in touchedFields && errors["login"] && (errors["login"].type === 'pattern') &&
-                <div style={{marginTop: "4px", height:"25px", marginLeft: "53px", width: "100%"}}>Please enter only English</div>}
-
-
+            {isTouched &&
+                errors["login"] && (errors["login"].type === 'required' || errors["login"].type === 'maxLength' || errors["login"].type === 'minLength' || errors["login"].type === 'isValidEmail') &&
+                <div style={{display: "flex", alignItems: "center"}}  className={'error-container'} >
+                    <BsExclamationCircle size={25} color={"red"}/>
+                    <div style={{marginTop: "4px", height: "25px", marginLeft: "53px", width: "100%"}}>Please, enter a
+                        valid
+                        email
+                        address
+                    </div>
+                </div>}
         </div>
 
 
